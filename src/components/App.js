@@ -7,7 +7,6 @@ const API = "http://localhost:3001/sushis";
 function App() {
   const [sushi, setSushi] = useState([])
   const [sushiIndex, setSushiIndex] = useState(0)
-  const [isEaten, setIsEaten] = useState(false)
 
   useEffect(() => {
     fetch(API)
@@ -24,10 +23,9 @@ function App() {
     setSushiIndex((sushiIndex) => (sushiIndex + 4) % sushi.length)
   }
 
+  // handle click on individual sushi
   function handleSushiClick(event) {
     console.log(event.target)
-    setIsEaten(isEaten => !isEaten)
-    console.log(isEaten)
   }
 
   // slice sushi array to only display first 4 sushi objects
@@ -39,7 +37,6 @@ function App() {
         sushi={displayedSushis} 
         onClickMore={handleMoreBtnClick} 
         eatSushi={handleSushiClick}
-        isEaten={isEaten}
       />
       <Table />
     </div>

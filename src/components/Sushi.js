@@ -1,13 +1,13 @@
 import React from "react";
 
-function Sushi({ name, image, price, eatSushi, isEaten }) {
+function Sushi({ name, image, price, eatSushi }) {
   
 
   return (
     <div className="sushi">
       <div className="plate" onClick={eatSushi}>
         {/* Tell me if this sushi has been eaten! */}
-        {!isEaten ? 
+        {true ? 
           <img
             src={image}
             alt={name}
