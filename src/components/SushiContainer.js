@@ -2,23 +2,15 @@ import React from "react";
 import MoreButton from "./MoreButton";
 import Sushi from "./Sushi"
 
-function SushiContainer({ sushi, onClickMore, eatSushi }) {
+function SushiContainer({ sushi, onClickMore, onEatSushi }) {
 
-  const sushiComponent = sushi.map(sushi => {
-    return (
-      <Sushi 
-        key={sushi.id} 
-        name={sushi.name} 
-        image={sushi.img_url}
-        price={sushi.price}
-        eatSushi={eatSushi}
-      />
-    )
-  })
+  const sushiComponents = sushi.map((sushi) => (
+    <Sushi key={sushi.id} sushi={sushi} onEatSushi={onEatSushi} />
+  ))
 
   return (
     <div className="belt">
-      {sushiComponent}
+      {sushiComponents}
       <MoreButton onClickMore={onClickMore} />
     </div>
   );
