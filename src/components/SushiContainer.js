@@ -2,9 +2,9 @@ import React from "react";
 import MoreButton from "./MoreButton";
 import Sushi from "./Sushi"
 
-function SushiContainer({ sushi, onClickMore, onEatSushi }) {
+function SushiContainer({ sushi, displayedSushis, onClickMore, onEatSushi }) {
 
-  const sushiComponents = sushi.map((sushi) => (
+  const sushiComponents = displayedSushis.map((sushi) => (
     <Sushi key={sushi.id} sushi={sushi} onEatSushi={onEatSushi} />
   ))
 
